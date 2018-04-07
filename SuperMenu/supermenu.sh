@@ -12,7 +12,7 @@
 #------------------------------------------------------
 # VARIABLES GLOBALES
 #------------------------------------------------------
-proyectoActual="$(pdw)/home/andrew/Documents/repo_GitLab/2013_SoftwareEnginneringAndComplexity_BestPaperAward";
+proyectoActual="$(pwd)";
 proyectos="/home/andrew/Documents/repo_GitLab/repos.txt";
 
 #------------------------------------------------------

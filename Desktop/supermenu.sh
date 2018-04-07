@@ -109,7 +109,7 @@ fi
 c_funcion () {
           imprimir_encabezado "\tOpción c";
   
-    
+    puta
 }
 
 d_funcion () {

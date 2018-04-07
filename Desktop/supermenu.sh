@@ -12,7 +12,7 @@
 #------------------------------------------------------
 # VARIABLES GLOBALES
 #------------------------------------------------------
-proyectoActual="/home/andrew/Documents/repo_GitLab/2013_SoftwareEnginneringAndComplexity_BestPaperAward";
+proyectoActual="$(pdw)/home/andrew/Documents/repo_GitLab/2013_SoftwareEnginneringAndComplexity_BestPaperAward";
 proyectos="/home/andrew/Documents/repo_GitLab/repos.txt";
 
 #------------------------------------------------------
@@ -28,8 +28,8 @@ imprimir_menu () {
     echo -e "\t\t Opciones:";
     echo "";
     echo -e "\t\t\t a.  Ver estado del proyecto";
-    echo -e "\t\t\t b.  Verificar aplicaciones instaladas";
-    echo -e "\t\t\t c.  ";
+    echo -e "\t\t\t b.  Actualizar el proyecto";
+    echo -e "\t\t\t c.  Verificar aplicaciones instaladas";
     echo -e "\t\t\t d.  ";        
     echo -e "\t\t\t e.  ";        
     echo -e "\t\t\t q.  Salir";
@@ -86,7 +86,7 @@ a_funcion () {
         decidir "cd $proyectoActual; git status";
 }
 
-b_funcion () {
+c_funcion () {
            imprimir_encabezado "Verificar aplicaciones instaladas";
 
 #!/bin/bash
@@ -106,8 +106,28 @@ fi
 
 }
 
-c_funcion () {
-          imprimir_encabezado "\tOpción c";
+b_funcion () {
+          imprimir_encabezado "\tOpción b";
+echo " Ingrese el path del archivo a subir ..."
+read archivo
+git add "$archivo"
+echo "Ingrese un comentario para el archivo..."
+read comentario
+git commit -m " "$comentario" "
+echo $1;
+    while true; do
+        echo "desea subir el archivo? (s/n)";
+            read respuesta;
+            case $respuesta in
+                [Nn]* ) break;;
+                   [Ss]* ) eval $1
+		$git push origin master
+		echo Subiendo...
+                break;;
+		* ) echo "Por favor tipear S/s ó N/n.";;
+		esac
+		
+    done
   
     
 }

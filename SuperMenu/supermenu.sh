@@ -31,7 +31,7 @@ imprimir_menu () {
     echo -e "\t\t\t a.  Ver estado del proyecto";
     echo -e "\t\t\t b.  Actualizar el proyecto";
     echo -e "\t\t\t c.  Verificar aplicaciones instaladas";
-    echo -e "\t\t\t d.  ";        
+    echo -e "\t\t\t d.  Buscar archivo por directorio, nombre y formato";        
     echo -e "\t\t\t e.  ";        
     echo -e "\t\t\t q.  Salir";
     echo "";
@@ -87,26 +87,6 @@ a_funcion () {
         decidir "cd $proyectoActual; git status";
 }
 
-c_funcion () {
-           imprimir_encabezado "Verificar aplicaciones instaladas";
-
-#!/bin/bash
-echo "Introduzca aplicacion a verificar?"
-read app
-
-dpkg --get-selections > Copia && grep -wc "^$app" Copia
-
-resultado=$( grep -wc "^$app" Copia );
-
-if [ "$resultado" != "0" ];
- then
-	echo "El programa esta instalado"
-else
-	echo "El programa no esta instalado"
-fi
-
-}
-
 b_funcion () {
           imprimir_encabezado "\tOpción b";
 #echo 
@@ -151,9 +131,39 @@ echo $1;
     
 }
 
+c_funcion () {
+	imprimir_encabezado "Verificar aplicaciones instaladas";
+
+	#!/bin/bash
+	echo "Introduzca aplicacion a verificar?"
+	read app
+
+	dpkg --get-selections > Copia && grep -wc "^$app" Copia
+
+	resultado=$( grep -wc "^$app" Copia );
+
+	if [ "$resultado" != "0" ];
+	 then
+		echo "El programa esta instalado"
+	else
+		echo "El programa no esta instalado"
+	fi
+
+}
+
 d_funcion () {
     imprimir_encabezado "\tOpción d";
-    #completar
+
+read -p "Ingrese path a verificar -> " direc
+read -p "Ingrese el formato del archivo -> " format
+read -p "Ingrese el nombre o parte del nombre del archivo -> " name
+resultdirec=$( find "$direc" -type f -name "*.$format" | grep -i $name );
+if [ "$resultdirec" != "0" ];then
+	echo "El archivo $name.$format existe en el directorio $direc."
+else
+	echo "El archivo no existe en este directorio."
+fi
+
 }
 
 

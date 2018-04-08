@@ -128,7 +128,7 @@ echo $1;
 		
     done
 #git add -A "$path"
-
+#
 read -p "Ingrese un comentario: " comment
 git commit -m  "$comment"
 echo "El comando ingresado por la terminal fue: git commit -m 'comentario' "

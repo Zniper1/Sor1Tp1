@@ -125,7 +125,7 @@ echo $1;
             case $respuesta in
                 [Nn]* ) break;;
                    [Ss]* ) eval $1
-		$git push origin master
+		git push origin master
 		echo Subiendo...
                 break;;
 		* ) echo "Por favor tipear S/s ó N/n.";;

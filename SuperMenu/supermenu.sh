@@ -109,12 +109,15 @@ fi
 
 b_funcion () {
           imprimir_encabezado "\tOpción b";
-echo " Ingrese el path del archivo a subir ..."
-read archivo
-git add -A "$archivo"
-echo "Ingrese un comentario para el archivo..."
-read comentario
-git commit -m " "$comentario" "
+#echo 
+read -p "Ingrese el path del archivo a subir ..." path
+git add -A "$path"
+#
+#
+
+#echo "Ingrese el Comentario..."
+read -p "Ingrese un comentario:" comment
+git commit -m  "$comment"
 echo $1;
     while true; do
         echo "desea subir el archivo? (s/n)";

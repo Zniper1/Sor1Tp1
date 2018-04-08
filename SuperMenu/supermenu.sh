@@ -111,16 +111,16 @@ b_funcion () {
           imprimir_encabezado "\tOpción b";
 #echo 
 
-read -p "Ingrese el path del archivo a subir:" path
+read -p "Ingrese el path del archivo a subir: " path
 echo $1;
     while true; do
-        echo "el path es correcto? (s/n): $path" ;
+        echo "El path $path es correcto? (s/n)" ;
             read respuesta;
             case $respuesta in
                 [Nn]* ) break;;
                    [Ss]* ) eval $1
-		echo "el comando que ingreso la terminal fue: git add -A $path "
 		git add -A "$path"
+		echo "El comando ingresado por la terminal fue: git add -A $path "
 		echo 
                 break;;
 		* ) echo "Por favor tipear S/s ó N/n.";;
@@ -128,20 +128,19 @@ echo $1;
 		
     done
 #git add -A "$path"
-#
-#
 
-#echo "Ingrese el Comentario..."
-read -p "Ingrese un comentario:" comment
+read -p "Ingrese un comentario: " comment
 git commit -m  "$comment"
+echo "El comando ingresado por la terminal fue: git commit -m 'comentario' "
 echo $1;
     while true; do
-        echo "desea subir el archivo? (s/n)";
+        echo "Desea subir el archivo? (s/n)";
             read respuesta;
             case $respuesta in
                 [Nn]* ) break;;
                    [Ss]* ) eval $1
 		git push origin master
+		echo "El comando ingresado por la terminal fue: git push origin master"
 		echo Subiendo...
                 break;;
 		* ) echo "Por favor tipear S/s ó N/n.";;

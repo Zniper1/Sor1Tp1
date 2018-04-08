@@ -9,6 +9,7 @@
     bg_blue=`tput setab 4`;
     reset=`tput sgr0`;
     bold=`tput setaf bold`;
+#oibf
 #------------------------------------------------------
 # VARIABLES GLOBALES
 #------------------------------------------------------

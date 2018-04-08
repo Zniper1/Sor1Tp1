@@ -110,7 +110,32 @@ fi
 b_funcion () {
           imprimir_encabezado "\tOpción b";
 #echo 
-read -p "Ingrese el path del archivo a subir ..." path
+
+read -p "Ingrese el path del archivo a subir:" path
+echo $1;
+    while true; do
+        echo "el path es correcto? (s/n): $path" ;
+            read respuesta;
+            case $respuesta in
+                [Nn]* ) break;;
+                   [Ss]* ) eval $1
+		echo "el comando que ingreso la terminal fue: git add -A $path "
+		git add -A "$path"
+		echo 
+                break;;
+		* ) echo "Por favor tipear S/s ó N/n.";;
+		esac
+		
+    done
+
+
+
+
+
+
+
+
+
 git add -A "$path"
 #
 #

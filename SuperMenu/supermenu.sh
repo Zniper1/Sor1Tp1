@@ -127,16 +127,7 @@ echo $1;
 		esac
 		
     done
-
-
-
-
-
-
-
-
-
-git add -A "$path"
+#git add -A "$path"
 #
 #
 

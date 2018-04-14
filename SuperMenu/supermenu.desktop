@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=supermenu
 Comment=Acceso directo Supermenu
-Exec=/root/Desktop/Supermenu/supermenu.sh
-Icon=/root/Desktop/SuperMenu/Icono
-Terminal=false
+Exec=/root/Supermenu/supermenu.sh
+Icon=/root/SuperMenu/Icono
+Terminal=true
 Type=Application
-

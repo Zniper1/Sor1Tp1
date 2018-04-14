@@ -183,7 +183,7 @@ rm Copia
 
 f_funcion () {
 	imprimir_encabezado "\tOpción f. Busqueda y Concatenado de string";
-	
+rm out	
 read -p "Ingrese el path completo incluyendo el archivo -> " archivo
 
 read -p "Ingrese un String para buscar en el archivo ->" string

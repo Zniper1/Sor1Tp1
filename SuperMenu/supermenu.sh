@@ -24,7 +24,6 @@ imprimir_menu () {
     
     echo -e "\t\t El proyecto actual es:";
     echo -e "\t\t $proyectoActual";
-    
     echo -e "\t\t";
     echo -e "\t\t Opciones:";
     echo "";
@@ -32,7 +31,8 @@ imprimir_menu () {
     echo -e "\t\t\t b.  Subir el proyecto al repositorio Git";
     echo -e "\t\t\t c.  Actualizar proyecto en la PC";
     echo -e "\t\t\t d.  Verificar aplicaciones instaladas";        
-    echo -e "\t\t\t e.  Buscar archivos por directorio, nombre y formato";        
+    echo -e "\t\t\t e.  Buscar archivos por directorio, extension y nombre"; 
+    echo -e "\t\t\t f.  Busqueda y Concatenado de string"; 
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -157,19 +157,48 @@ d_funcion () {
 }
 
 e_funcion () {
-    imprimir_encabezado "\tOpción e. Verificar archivos por directorio, formato y nombre";
+    imprimir_encabezado "\tOpción e. Verificar archivos por directorio, extension y nombre";
 
-read -p "Ingrese path a verificar -> " direc
-read -p "Ingrese el formato del archivo -> " format
-read -p "Ingrese el nombre o parte del nombre del archivo -> " name
-resultdirec=$( find "$direc" -name "*.$format" | grep -n $name );
-if [ "$resultdirec" != "0" ];then
-	echo "El archivo $name.$format existe en el directorio $direc."
-else
-	echo "El archivo no existe en este directorio."
-fi
+read -p "Ingrese path a verificar -> " directorio
+
+read -p "Ingrese el extension del archivo -> " extension
+
+read -p "Ingrese el nombre o parte del nombre del archivo -> " nombre
+
+find $directorio -name "*.$extension" | grep -i "$nombre" > Copia
+
+resultado=$( grep -c "$nombre" Copia );
+if [ "$resultado" != "0" ];
+	 then
+		echo "Con Directorio: $directorio y Extension $formato existen los siguientes archivos:"
+echo "";
+ cat Copia
+	else
+	echo"";
+		echo "No existen Archivos asociados con el directorio y el extension"
+	fi
+rm Copia
 
 }
+
+f_funcion () {
+	imprimir_encabezado "\tOpción f. Busqueda y Concatenado de string";
+	
+read -p "Ingrese el path completo incluyendo el archivo -> " archivo
+
+read -p "Ingrese un String para buscar en el archivo ->" string
+read -p "Cuantas veces desea concatenar la cadena: " contado
+
+contador=1
+
+while [ $contador -le $contado ]; do
+    grep -i  "$string"  $archivo >> out
+    let contador=$contador+1
+done
+
+ }
+
+
 
 
 
@@ -191,10 +220,11 @@ do
         c|C) c_funcion;;
         d|D) d_funcion;;
         e|E) e_funcion;;
+        f|F) f_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac
     esperar;
 done
- 
+
 

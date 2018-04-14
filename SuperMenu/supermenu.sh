@@ -32,7 +32,7 @@ imprimir_menu () {
     echo -e "\t\t\t b.  Subir el proyecto al repositorio Git";
     echo -e "\t\t\t c.  Actualizar proyecto en la PC";
     echo -e "\t\t\t d.  Verificar aplicaciones instaladas";        
-    echo -e "\t\t\t e.  Buscar archivo por directorio, nombre y formato";        
+    echo -e "\t\t\t e.  Buscar archivos por directorio, nombre y formato";        
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -157,7 +157,7 @@ d_funcion () {
 }
 
 e_funcion () {
-    imprimir_encabezado "\tOpción e. Verificar archivo por directorio, formato y nombre";
+    imprimir_encabezado "\tOpción e. Verificar archivos por directorio, formato y nombre";
 
 read -p "Ingrese path a verificar -> " direc
 read -p "Ingrese el formato del archivo -> " format

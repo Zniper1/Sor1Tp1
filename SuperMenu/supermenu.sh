@@ -29,10 +29,10 @@ imprimir_menu () {
     echo -e "\t\t Opciones:";
     echo "";
     echo -e "\t\t\t a.  Ver estado del proyecto";
-    echo -e "\t\t\t b.  Actualizar el proyecto";
-    echo -e "\t\t\t c.  Verificar aplicaciones instaladas";
-    echo -e "\t\t\t d.  Buscar archivo por directorio, nombre y formato";        
-    echo -e "\t\t\t e.  ";        
+    echo -e "\t\t\t b.  Subir el proyecto al repositorio Git";
+    echo -e "\t\t\t c.  Actualizar proyecto en la PC";
+    echo -e "\t\t\t d.  Verificar aplicaciones instaladas";        
+    echo -e "\t\t\t e.  Buscar archivo por directorio, nombre y formato";        
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -88,7 +88,7 @@ a_funcion () {
 }
 
 b_funcion () {
-          imprimir_encabezado "\tOpción b";
+          imprimir_encabezado "\tOpción b.  Subir el proyecto al repositorio Git (PUSH)";
 #echo 
 
 read -p "Ingrese el path del archivo a subir: " path
@@ -127,19 +127,24 @@ echo $1;
 		esac
 		
     done
-  
-    
+     
 }
 
 c_funcion () {
-	imprimir_encabezado "Verificar aplicaciones instaladas";
+    imprimir_encabezado "\tOpción c.  Actualizar proyecto en la pc (PULL)";        
+
+decidir "cd $proyectoActual; git pull origin master";
+}
+
+
+d_funcion () {
+	imprimir_encabezado "\tOpción d.  Verificar aplicaciones instaladas";
 
 	#!/bin/bash
 	echo "Introduzca aplicacion a verificar?"
 	read app
 
 	dpkg --get-selections > Copia && grep -wc "^$app" Copia
-
 	resultado=$( grep -wc "^$app" Copia );
 
 	if [ "$resultado" != "0" ];
@@ -151,13 +156,13 @@ c_funcion () {
 
 }
 
-d_funcion () {
-    imprimir_encabezado "\tOpción d";
+e_funcion () {
+    imprimir_encabezado "\tOpción e. Verificar archivo por directorio, formato y nombre";
 
 read -p "Ingrese path a verificar -> " direc
 read -p "Ingrese el formato del archivo -> " format
 read -p "Ingrese el nombre o parte del nombre del archivo -> " name
-resultdirec=$( find "$direc" -type f -name "*.$format" | grep -i $name );
+resultdirec=$( find "$direc" -name "*.$format" | grep -n $name );
 if [ "$resultdirec" != "0" ];then
 	echo "El archivo $name.$format existe en el directorio $direc."
 else
@@ -167,10 +172,7 @@ fi
 }
 
 
-e_funcion () {
-    imprimir_encabezado "\tOpción e";        
-    #completar
-}
+
 
 
 #------------------------------------------------------

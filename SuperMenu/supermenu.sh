@@ -165,7 +165,7 @@ find $directorio -name "*.$extension" | grep -i "$nombre" > Copia
 resultado=$( grep -c "$nombre" Copia );
 if [ "$resultado" != "0" ];
 	then
-		echo "Con Directorio: $directorio y Extension $formato existen los siguientes archivos:"
+		echo "Con Directorio: $directorio y Extension $extension existen los siguientes archivos:"
 		echo "";
 		cat Copia
 	else

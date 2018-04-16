@@ -1,3 +1,9 @@
 En primer lugar, se descargo e instalo GitHub con el comando "apt install git-all".
+En segundo lugar, inicializamos git con el comando "git init".
+En tercer lugar, adherimos en el nuevo repositorio un archivo y le agregamos el primer comentario con los comandos "git add supermenu.sh" y "git commit -m 'comentario'". Una vez realizado el paso anterior, pasamos a la creacion del repositorio con el primer comentario:
 En primer lugar, se descargo e instalo GitHub con el comando "apt install git-all".
+En segundo lugar, inicializamos git con el comando "git init".
+En tercer lugar, adherimos en el nuevo repositorio un archivo y le agregamos el primer comentario con los comandos "git add supermenu.sh" y "git commit -m 'comentario'". Una vez realizado el paso anterior, pasamos a la creacion del repositorio con el primer comentario:
 En primer lugar, se descargo e instalo GitHub con el comando "apt install git-all".
+En segundo lugar, inicializamos git con el comando "git init".
+En tercer lugar, adherimos en el nuevo repositorio un archivo y le agregamos el primer comentario con los comandos "git add supermenu.sh" y "git commit -m 'comentario'". Una vez realizado el paso anterior, pasamos a la creacion del repositorio con el primer comentario:

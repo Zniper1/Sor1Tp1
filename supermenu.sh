@@ -34,7 +34,6 @@ imprimir_menu () {
     echo -e "\t\t\t d.  Verificar si tengo una aplicacion instalada";
     echo -e "\t\t\t e.  Buscar archivos por directorio, extension y nombre"; 
     echo -e "\t\t\t f.  Busqueda y concatenado de strings";
-    echo -e "\t\t\t g.  Canto Marado";
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -82,7 +81,7 @@ decidir () {
 }
 
 notificar () {
-	notify-send "Deberia verificar si el proyecto esta actualizado con la opcion A."
+	notify-send -t 8 "Deberia verificar si el proyecto esta actualizado con la opcion A."
 }
 
 #------------------------------------------------------
@@ -91,16 +90,23 @@ notificar () {
 
 a_funcion () {
 	imprimir_encabezado "\tOpción a.  Ver estado del proyecto";
+
 	decidir "cd $proyectoActual; git status";
 }
 
 
 b_funcion () {
 	imprimir_encabezado "\tOpción b.  Subir el proyecto al repositorio Git (PUSH)";
+
 	decidir "cd $proyectoActual; git add -A";
+	echo "";
+	
 	read -p "Ingrese un mensaje para su Commit: " Mensaje
 	decidir "cd $proyectoActual; git commit -m "$Mensaje"";
+	echo "";
+
 	decidir "cd $proyectoActual; git push origin master";
+	echo "";
 }
 
 
@@ -166,12 +172,6 @@ grep -i  "$string"  $archivo >> salida.out
 
 }
 
-g_funcion () {
-	imprimir_encabezado "\tOpción g. Canto Marado";
-
-}
-
-
 #------------------------------------------------------
 # LOGICA PRINCIPAL
 #------------------------------------------------------
@@ -190,7 +190,6 @@ do
         d|D) d_funcion;;
         e|E) e_funcion;;
         f|F) f_funcion;;
-        g|G) g_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac

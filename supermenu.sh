@@ -80,6 +80,10 @@ decidir () {
     done
 }
 
+notificar () {
+	notify-send "Deberia verificar si el proyecto esta actualizado con la opcion A."
+}
+
 #------------------------------------------------------
 # FUNCTIONES del MENU
 #------------------------------------------------------
@@ -168,6 +172,7 @@ grep -i  "$string"  $archivo >> salida.out
 while  true
 do
     # 1. mostrar el menu
+    notificar;
     imprimir_menu;
     # 2. leer la opcion del usuario
     read opcion;

@@ -40,20 +40,20 @@ int main() {
 
     while(NumRepeticiones>0)
     {
-    pthread_t Proceso1;
-    pthread_create(&Proceso1,NULL, &ImprimirCantoMa,NULL);
+    	pthread_t Proceso1;
+    	pthread_create(&Proceso1,NULL, &ImprimirCantoMa,NULL);
 
-    pthread_t Proceso2;
-    pthread_create(&Proceso2,NULL, &ImprimirCantoRa,NULL);
+    	pthread_t Proceso2;
+    	pthread_create(&Proceso2,NULL, &ImprimirCantoRa,NULL);
 
-    pthread_t Proceso3;
-    pthread_create(&Proceso3,NULL, &ImprimirCantoDo,NULL);
+    	pthread_t Proceso3;
+    	pthread_create(&Proceso3,NULL, &ImprimirCantoDo,NULL);
 
-    pthread_join(Proceso1,NULL);
-    pthread_join(Proceso2,NULL);
-    pthread_join(Proceso3,NULL);
+    	pthread_join(Proceso1,NULL);
+    	pthread_join(Proceso2,NULL);
+    	pthread_join(Proceso3,NULL);
 
-    NumRepeticiones--;
+    	NumRepeticiones--;
     }
    	 sem_destroy(&a);
     	 sem_destroy(&b);

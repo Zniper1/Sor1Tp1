@@ -96,38 +96,6 @@ b_funcion () {
 	read -p "Ingrese un mensaje para su Commit: " Mensaje
 	decidir "cd $proyectoActual; git commit -m "$Mensaje"";
 	decidir "cd $proyectoActual; git push origin master";
-
-#read -p "Ingrese el path del archivo a subir: " path
-#echo $1;
-#while true;do
-#	echo "El path $path es correcto? (s/n)" ;
-#	read respuesta;
-#	case $respuesta in
-#		[Nn]* ) break;;
-#		[Ss]* ) eval $1
-#		git add -A "$path"
-#		echo "El comando ingresado por la terminal fue: git add -A $path "
-#	        break;;
-#		* ) echo "Por favor tipear S/s ó N/n.";;
-#		esac
-#	done
-#
-#read -p "Ingrese un comentario: " comment
-#git commit -m  "$comment"
-#echo "El comando ingresado por la terminal fue: git commit -m 'comentario' "
-#echo $1;
-#while true;do
-#        echo "Desea subir el archivo? (s/n)";
-#	read respuesta;
-#	case $respuesta in
-#		[Nn]* ) break;;
-#		[Ss]* ) eval $1
-#		git push origin master
-#		echo "El comando ingresado por la terminal fue: git push origin master"
-#	        break;;
-#		* ) echo "Por favor tipear S/s ó N/n.";;
-#		esac
-#	done
 }
 
 
@@ -145,7 +113,7 @@ d_funcion () {
 	echo "Introduzca aplicacion a verificar?"
 	read app
 
-	dpkg --get-selections > Copia #&& grep -wc "^$app" Copia
+	dpkg --get-selections > Copia
 	resultado=$( grep -wc "^$app" Copia );
 
 	if [ "$resultado" != "0" ];

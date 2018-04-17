@@ -1,0 +1,14 @@
+En primer lugar, se descargo e instalo GitHub con el comando "apt install git-all".
+
+En segundo lugar, inicializamos git con el comando "git init".
+
+En tercer lugar, adherimos en el nuevo repositorio un archivo y le agregamos el primer comentario con los comandos "git add supermenu.sh" y "git commit -m 'comentario'". Una vez realizado el paso anterior, pasamos a la creacion del repositorio con el primer comentario:
+
+echo "# Sor1Tp1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Zniper1/Sor1Tp1.git
+git push origin master
+
+

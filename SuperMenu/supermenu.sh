@@ -9,7 +9,7 @@
     bg_blue=`tput setab 4`;
     reset=`tput sgr0`;
     bold=`tput setaf bold`;
-#oibf
+
 #------------------------------------------------------
 # VARIABLES GLOBALES
 #------------------------------------------------------
@@ -181,18 +181,10 @@ rm Copia
 f_funcion () {
 	imprimir_encabezado "\tOpción f. Busqueda y concatenado de strings";
 
-rm salida.out
-
 read -p "Ingrese el path completo incluyendo el archivo -> " archivo
 read -p "Ingrese un String para buscar en el archivo -> " string
-read -p "Cuantas veces desea concatenar la cadena: " limite
 
-contador=1
-
-while [ $contador -le $limite ];do
-	grep -i  "$string"  $archivo >> salida.out
-	let contador=$contador+1
-done
+grep -i  "$string"  $archivo >> salida.out
 
 }
 

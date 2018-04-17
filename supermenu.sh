@@ -34,6 +34,7 @@ imprimir_menu () {
     echo -e "\t\t\t d.  Verificar si tengo una aplicacion instalada";
     echo -e "\t\t\t e.  Buscar archivos por directorio, extension y nombre"; 
     echo -e "\t\t\t f.  Busqueda y concatenado de strings";
+    echo -e "\t\t\t g.  Canto Marado";
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -165,6 +166,11 @@ grep -i  "$string"  $archivo >> salida.out
 
 }
 
+g_funcion () {
+	imprimir_encabezado "\tOpción g. Canto Marado";
+
+}
+
 
 #------------------------------------------------------
 # LOGICA PRINCIPAL
@@ -184,6 +190,7 @@ do
         d|D) d_funcion;;
         e|E) e_funcion;;
         f|F) f_funcion;;
+        g|G) g_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac

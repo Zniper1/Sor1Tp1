@@ -7,41 +7,26 @@ sem_t a;
 sem_t b;
 sem_t c;
 
-pthread_mutex_t mi_mutex;
-
-
 void *ImprimirCantoMa ()
 {
     sem_wait(&a);
-	pthread_mutex_lock(&mi_mutex);
-    printf("%s", "Ma");
+    	printf("%s", "Ma");
     sem_post(&b);
-    pthread_mutex_unlock(&mi_mutex);
-    pthread_exit(NULL);
-
 }
 
 void *ImprimirCantoRa ()
 {
     sem_wait(&b);
-	pthread_mutex_lock(&mi_mutex);
-    printf("%s", "Ra");
+    	printf("%s", "ra");
     sem_post(&c);
-    pthread_mutex_unlock(&mi_mutex);
-    pthread_exit(NULL);
 }
 
 void *ImprimirCantoDo ()
 {
     sem_wait(&c);
-	pthread_mutex_lock(&mi_mutex);
-    printf("%s", "Do");
-    printf("%s", "\n");
+    	printf("%s", "dooo...");
+    	printf("%s", "\n");
     sem_post(&a);
-    pthread_mutex_unlock(&mi_mutex);
-    pthread_exit(NULL);
-
-
 }
 
 
@@ -49,7 +34,7 @@ int main() {
 
     int NumRepeticiones = 10;
 
-    sem_init(&a,0,1);
+    	sem_init(&a,0,1);
 	sem_init(&b,0,0);
 	sem_init(&c,0,0);
 
@@ -70,13 +55,9 @@ int main() {
 
     NumRepeticiones--;
     }
-
-	pthread_exit(NULL);
-    sem_destroy(&a);
-    sem_destroy(&b);
-    sem_destroy(&c);
-    pthread_mutex_destroy(&mi_mutex);
-
+   	 sem_destroy(&a);
+    	 sem_destroy(&b);
+   	 sem_destroy(&c);
 
     return 0;
 }

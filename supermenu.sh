@@ -93,7 +93,7 @@ a_funcion () {
 b_funcion () {
 	imprimir_encabezado "\tOpción b.  Subir el proyecto al repositorio Git (PUSH)";
 	decidir "cd $proyectoActual; git add -A";
-	read -p "Ingrese un mensaje para su Commit.. " Mensaje
+	read -p "Ingrese un mensaje para su Commit: " Mensaje
 	decidir "cd $proyectoActual; git commit -m "$Mensaje"";
 	decidir "cd $proyectoActual; git push origin master";
 
@@ -145,7 +145,7 @@ d_funcion () {
 	echo "Introduzca aplicacion a verificar?"
 	read app
 
-	dpkg --get-selections > Copia && grep -wc "^$app" Copia
+	dpkg --get-selections > Copia #&& grep -wc "^$app" Copia
 	resultado=$( grep -wc "^$app" Copia );
 
 	if [ "$resultado" != "0" ];

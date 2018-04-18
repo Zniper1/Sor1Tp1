@@ -8,15 +8,13 @@ sem_t b;
 sem_t c;
 sem_t d;
 sem_t e;
-sem_t auxB;
-sem_t auxC;
+sem_t aux;
 
 void *ImprimirCanto1 ()
 {
    	sem_wait(&a);
     	printf("%s", "Ole ole ole, \n");
-    	sem_post(&auxB);
-	sem_post(&auxC);
+    	sem_post(&aux);
 }
 
 void *ImprimirCanto2 ()
@@ -31,7 +29,7 @@ void *ImprimirCanto2 ()
 void *ImprimirCanto3 ()
 {
     	sem_wait(&c);
-	sem_wait(&auxy);
+	sem_wait(&aux);
     	printf("%s", "cada dia te quiero más. \n");
     	sem_post(&d);
 }
@@ -62,7 +60,7 @@ int main() {
 	sem_init(&c,0,0);
 	sem_init(&d,0,0);
 	sem_init(&e,0,0);
-	sem_init(&auxy,0,0);
+	sem_init(&aux,0,0);
 
     while(NumRepeticiones>0)
     {
@@ -94,7 +92,7 @@ int main() {
    	sem_destroy(&c);
  	sem_destroy(&d);
  	sem_destroy(&e);
- 	sem_destroy(&auxy);
+ 	sem_destroy(&aux);
 
     return 0;
 }

@@ -23,16 +23,22 @@ void *ImprimirCanto1 ()
 
 void *ImprimirCanto2 ()
 {
+<<<<<<< HEAD
     	sem_wait(&aux);
 	sem_wait(&b);	
     	printf("%s", "Ole ole ole ola, \n");
 	sem_post(&a);
+=======
+	sem_wait(&aux);
+	sem_wait(&b);
+    	printf("%s", "ole ole ole olá, \n");
+>>>>>>> 6a0bf975f8e3a4bad33bd99af6c5fc7bcf5f1d02
 	sem_post(&c);
 }
 
 void *ImprimirCanto3 ()
 {
-    	sem_wait(&c);
+	sem_wait(&c);
 	sem_wait(&aux);
     	printf("%s", "cada dia te quiero mas. \n");
     	sem_post(&d);
@@ -55,9 +61,15 @@ void *ImprimirCanto5 ()
 }
 
 
+<<<<<<< HEAD
 int main() {
 
     int NumRepeticiones = 0;
+=======
+int main()
+{
+    	int NumRepeticiones = 10;
+>>>>>>> 6a0bf975f8e3a4bad33bd99af6c5fc7bcf5f1d02
 
     	sem_init(&a,0,1);
 	sem_init(&b,0,1);

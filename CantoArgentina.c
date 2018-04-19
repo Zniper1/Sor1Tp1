@@ -12,16 +12,20 @@ sem_t aux;
 
 void *ImprimirCanto1 ()
 {
-   	sem_wait(&a);
-    	printf("%s", "Ole ole ole, \n");
-    	sem_post(&aux);
+	int i=0;
+	for (i;i<2;i++){
+		sem_wait(&a);
+	    	printf("%s", "Ole ole ole, \n");
+	    	sem_post(&aux);
+	}
+   	
 }
 
 void *ImprimirCanto2 ()
 {
     	sem_wait(&aux);
 	sem_wait(&b);	
-    	printf("%s", "Ole ole ole olá, \n");
+    	printf("%s", "Ole ole ole ola, \n");
 	sem_post(&a);
 	sem_post(&c);
 }
@@ -30,7 +34,7 @@ void *ImprimirCanto3 ()
 {
     	sem_wait(&c);
 	sem_wait(&aux);
-    	printf("%s", "cada dia te quiero más. \n");
+    	printf("%s", "cada dia te quiero mas. \n");
     	sem_post(&d);
 }
 
@@ -44,7 +48,7 @@ void *ImprimirCanto4 ()
 void *ImprimirCanto5 ()
 {
     	sem_wait(&e);
-    	printf("%s", "es un sentimiento, ¡No puedo parar! \n");
+    	printf("%s", "es un sentimiento, no puedo parar! \n");
     	printf("%s", "\n");
    	sem_post(&a);
 	sem_post(&b);
@@ -53,7 +57,7 @@ void *ImprimirCanto5 ()
 
 int main() {
 
-    int NumRepeticiones = 10;
+    int NumRepeticiones = 0;
 
     	sem_init(&a,0,1);
 	sem_init(&b,0,1);
@@ -62,7 +66,7 @@ int main() {
 	sem_init(&e,0,0);
 	sem_init(&aux,0,0);
 
-    while(NumRepeticiones>0)
+    while(NumRepeticiones<3)
     {
     	pthread_t Proceso1;
     	pthread_create(&Proceso1,NULL, &ImprimirCanto1,NULL);
@@ -85,7 +89,7 @@ int main() {
 	pthread_join(Proceso4,NULL);
 	pthread_join(Proceso5,NULL);
 
-    	NumRepeticiones--;
+    	NumRepeticiones++;
     }
    	sem_destroy(&a);
     	sem_destroy(&b);

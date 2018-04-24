@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name= SuperMenu
+Comment= Acceso directo del Supermenu
+Exec= /home/juanchin/SuperMenu/supermenu.sh
+Icon= /home/juanchin/SuperMenu/Icono
+Terminal=true
+Type=Application

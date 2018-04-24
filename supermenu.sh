@@ -15,7 +15,7 @@
 # VARIABLES GLOBALES
 #------------------------------------------------------
 proyectoActual="$(pwd)";
-proyectos="/home/andrew/Documents/repo_GitLab/repos.txt";
+proyectos="";
 
 #------------------------------------------------------
 # DISPLAY MENU

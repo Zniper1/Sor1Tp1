@@ -14,7 +14,7 @@ int main() {
         //imprimir un mensaje para el usuario
         printf("Esperando...\n Presione cualquier tecla...");
         //esperar un enter por parte del usuario        
-//        getchar();
+        getchar();
         ///////////////////////////////////////////////////////////////    
         //en este punto el proceso esta en Estado Bloqueado (S+ ó D)*//
         ///////////////////////////////////////////////////////////////                                    

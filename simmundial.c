@@ -11,6 +11,11 @@
 #define CANTIDAD_GRUPOS 8
 char* grupos_labels[] = {"A", "B", "C", "D", "E", "F", "G", "H"};
 
+pthread_t GruposThr;
+pthread_t OctavosThr;
+pthread_t CuartosThr;
+pthread_t SemiThr;
+pthread_t FinalThr;
 pthread_t A;
 pthread_t B;
 pthread_t C;
@@ -175,6 +180,7 @@ void jugar_partido (int equipo_1, int equipo_2, int instancia, char* grupo_data[
 }
 
 void PartidoA (){
+    printf("\nJugando grupo A \n");
     jugar_partido(0,1, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
     jugar_partido(0,2, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
     jugar_partido(2,1, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
@@ -183,6 +189,7 @@ void PartidoA (){
     jugar_partido(3,0, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
 }
 void PartidoB (){
+    printf("\nJugando grupo B \n");
     jugar_partido(0,1, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
     jugar_partido(0,2, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
     jugar_partido(2,1, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
@@ -191,6 +198,7 @@ void PartidoB (){
     jugar_partido(3,0, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
 }
 void PartidoC (){
+    printf("\nJugando grupo C \n");
     jugar_partido(0,1, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
     jugar_partido(0,2, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
     jugar_partido(2,1, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
@@ -199,6 +207,7 @@ void PartidoC (){
     jugar_partido(3,0, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
 }
 void PartidoD (){
+    printf("\nJugando grupo D \n");
     jugar_partido(0,1, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
     jugar_partido(0,2, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
     jugar_partido(2,1, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
@@ -207,6 +216,7 @@ void PartidoD (){
     jugar_partido(3,0, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
 }
 void PartidoE (){
+    printf("\nJugando grupo E \n");
     jugar_partido(0,1, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
     jugar_partido(0,2, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
     jugar_partido(2,1, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
@@ -215,6 +225,7 @@ void PartidoE (){
     jugar_partido(3,0, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
 }
 void PartidoF (){
+    printf("\nJugando grupo F \n");
     jugar_partido(0,1, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
     jugar_partido(0,2, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
     jugar_partido(2,1, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
@@ -223,6 +234,7 @@ void PartidoF (){
     jugar_partido(3,0, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
 }
 void PartidoG (){
+    printf("\nJugando grupo G \n");
     jugar_partido(0,1, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
     jugar_partido(0,2, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
     jugar_partido(2,1, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
@@ -230,8 +242,8 @@ void PartidoG (){
     jugar_partido(3,1, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
     jugar_partido(3,0, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
 }
-
 void PartidoH (){
+    printf("\nJugando grupo H \n");
     jugar_partido(0,1, 0, grupo_H, grupo_H_puntos, grupo_H_favoritos);
     jugar_partido(0,2, 0, grupo_H, grupo_H_puntos, grupo_H_favoritos);
     jugar_partido(2,1, 0, grupo_H, grupo_H_puntos, grupo_H_favoritos);
@@ -240,64 +252,27 @@ void PartidoH (){
     jugar_partido(3,0, 0, grupo_H, grupo_H_puntos, grupo_H_favoritos);
 }
 
-void jugar_grupo (int grupo)
-{
-  printf("***************************************** \n");
-  printf("Jugando grupo %c \n", *grupos_labels[grupo]);
-  switch(grupo) {
-
-  case 0 :
-    pthread_create(&A, NULL, PartidoA, NULL);
-    pthread_join(A,NULL);
-    break;
-
-  case 1 :
-    pthread_create(&B, NULL, PartidoB, NULL);
-    pthread_join(B,NULL);
-    break;
-
-  case 2 :
-    pthread_create(&C, NULL, PartidoC, NULL);
-    pthread_join(C,NULL);
-    break;
-
-  case 3 :
-    pthread_create(&D, NULL, PartidoD, NULL);
-    pthread_join(D,NULL);
-    break;
-
-  case 4 :
-    pthread_create(&E, NULL, PartidoE, NULL);
-    pthread_join(E,NULL);
-    break;
-
-  case 5 :
-    pthread_create(&F, NULL, PartidoF, NULL);
-    pthread_join(F,NULL);
-    break;
-
-  case 6 :
-    pthread_create(&G, NULL, PartidoG, NULL);
-    pthread_join(G,NULL);
-    break;
-
-  case 7 :
-    pthread_create(&H, NULL, PartidoH, NULL);
-    pthread_join(H,NULL);
-    break;
-
-  default :
-    printf("Invalid grupo\n" );
-  }
-}
-
 void jugar_grupos ()
 {
-  	int i;
+  printf("***************************************** \n");
 
-  	for(i = 0; i < CANTIDAD_GRUPOS; i++){
-        jugar_grupo(i);
-    }
+    pthread_create(&A, NULL, PartidoA, NULL);
+    pthread_create(&B, NULL, PartidoB, NULL);
+    pthread_create(&C, NULL, PartidoC, NULL);
+    pthread_create(&D, NULL, PartidoD, NULL);
+    pthread_create(&E, NULL, PartidoE, NULL);
+    pthread_create(&F, NULL, PartidoF, NULL);
+    pthread_create(&G, NULL, PartidoG, NULL);
+    pthread_create(&H, NULL, PartidoH, NULL);
+
+    pthread_join(A,NULL);
+    pthread_join(B,NULL);
+    pthread_join(C,NULL);
+    pthread_join(D,NULL);
+    pthread_join(E,NULL);
+    pthread_join(F,NULL);
+    pthread_join(G,NULL);
+    pthread_join(H,NULL);
 }
 
 

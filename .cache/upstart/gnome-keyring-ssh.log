@@ -1,0 +1,2 @@
+grep: /home/martin/.config/autostart/gnome-keyring-ssh.desktop: No existe el archivo o el directorio
+** Message: couldn't access control socket: /run/user/1000/keyring/control: No existe el archivo o el directorio

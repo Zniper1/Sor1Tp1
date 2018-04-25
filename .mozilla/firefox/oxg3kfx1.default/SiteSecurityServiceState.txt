@@ -1,4 +1,0 @@
-www.mozilla.org:HSTS	0	17646	1556155737406,1,0,2
-normandy.cdn.mozilla.net:HPKP	0	17646	1524706138319,1,0,WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=sRHdihwgkaib1P1gxX8HFszlD+7/gTfNvuAybgLPNis=
-shavar.services.mozilla.com^firstPartyDomain=safebrowsing.86868755-6b82-4842-b301-72671a0db32e.mozilla:HSTS	0	17646	1556155744797,1,1,2
-normandy.cdn.mozilla.net:HSTS	0	17646	1556155738315,1,1,2

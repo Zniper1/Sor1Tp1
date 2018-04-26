@@ -462,9 +462,9 @@ void jugar_cuartos ()
   pthread_create(&D, NULL, PartidoCuartosD, NULL);
 
   pthread_join(A, NULL);
-  pthread_join(A, NULL);
-  pthread_join(A, NULL);
-  pthread_join(A, NULL);
+  pthread_join(B, NULL);
+  pthread_join(C, NULL);
+  pthread_join(D, NULL);
 }
 
 char* winer_semis[] = {"Wp61", "Wp62"};

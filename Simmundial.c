@@ -11,11 +11,6 @@
 #define CANTIDAD_GRUPOS 8
 char* grupos_labels[] = {"A", "B", "C", "D", "E", "F", "G", "H"};
 
-pthread_t GruposThr;
-pthread_t OctavosThr;
-pthread_t CuartosThr;
-pthread_t SemiThr;
-pthread_t FinalThr;
 pthread_t A;
 pthread_t B;
 pthread_t C;
@@ -92,7 +87,6 @@ void print_tabla_grupo(char* grupo_data[], int tabla[][8]){
     printf("\n");
   }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 // End Info de grupos
@@ -179,7 +173,7 @@ void jugar_partido (int equipo_1, int equipo_2, int instancia, char* grupo_data[
   }
 }
 
-void PartidoA (){
+void PartidosGrupoA (){
     printf("\nJugando grupo A \n");
     jugar_partido(0,1, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
     jugar_partido(0,2, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
@@ -188,7 +182,7 @@ void PartidoA (){
     jugar_partido(3,1, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
     jugar_partido(3,0, 0, grupo_A, grupo_A_puntos, grupo_A_favoritos);
 }
-void PartidoB (){
+void PartidosGrupoB (){
     printf("\nJugando grupo B \n");
     jugar_partido(0,1, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
     jugar_partido(0,2, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
@@ -197,7 +191,7 @@ void PartidoB (){
     jugar_partido(3,1, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
     jugar_partido(3,0, 0, grupo_B, grupo_B_puntos, grupo_B_favoritos);
 }
-void PartidoC (){
+void PartidosGrupoC (){
     printf("\nJugando grupo C \n");
     jugar_partido(0,1, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
     jugar_partido(0,2, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
@@ -206,7 +200,7 @@ void PartidoC (){
     jugar_partido(3,1, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
     jugar_partido(3,0, 0, grupo_C, grupo_C_puntos, grupo_C_favoritos);
 }
-void PartidoD (){
+void PartidosGrupoD (){
     printf("\nJugando grupo D \n");
     jugar_partido(0,1, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
     jugar_partido(0,2, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
@@ -215,7 +209,7 @@ void PartidoD (){
     jugar_partido(3,1, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
     jugar_partido(3,0, 0, grupo_D, grupo_D_puntos, grupo_D_favoritos);
 }
-void PartidoE (){
+void PartidosGrupoE (){
     printf("\nJugando grupo E \n");
     jugar_partido(0,1, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
     jugar_partido(0,2, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
@@ -224,7 +218,7 @@ void PartidoE (){
     jugar_partido(3,1, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
     jugar_partido(3,0, 0, grupo_E, grupo_E_puntos, grupo_E_favoritos);
 }
-void PartidoF (){
+void PartidosGrupoF (){
     printf("\nJugando grupo F \n");
     jugar_partido(0,1, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
     jugar_partido(0,2, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
@@ -233,7 +227,7 @@ void PartidoF (){
     jugar_partido(3,1, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
     jugar_partido(3,0, 0, grupo_F, grupo_F_puntos, grupo_F_favoritos);
 }
-void PartidoG (){
+void PartidosGrupoG (){
     printf("\nJugando grupo G \n");
     jugar_partido(0,1, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
     jugar_partido(0,2, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
@@ -242,7 +236,7 @@ void PartidoG (){
     jugar_partido(3,1, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
     jugar_partido(3,0, 0, grupo_G, grupo_G_puntos, grupo_G_favoritos);
 }
-void PartidoH (){
+void PartidosGrupoH (){
     printf("\nJugando grupo H \n");
     jugar_partido(0,1, 0, grupo_H, grupo_H_puntos, grupo_H_favoritos);
     jugar_partido(0,2, 0, grupo_H, grupo_H_puntos, grupo_H_favoritos);
@@ -256,14 +250,14 @@ void jugar_grupos ()
 {
   printf("***************************************** \n");
 
-    pthread_create(&A, NULL, PartidoA, NULL);
-    pthread_create(&B, NULL, PartidoB, NULL);
-    pthread_create(&C, NULL, PartidoC, NULL);
-    pthread_create(&D, NULL, PartidoD, NULL);
-    pthread_create(&E, NULL, PartidoE, NULL);
-    pthread_create(&F, NULL, PartidoF, NULL);
-    pthread_create(&G, NULL, PartidoG, NULL);
-    pthread_create(&H, NULL, PartidoH, NULL);
+    pthread_create(&A, NULL, PartidosGrupoA, NULL);
+    pthread_create(&B, NULL, PartidosGrupoB, NULL);
+    pthread_create(&C, NULL, PartidosGrupoC, NULL);
+    pthread_create(&D, NULL, PartidosGrupoD, NULL);
+    pthread_create(&E, NULL, PartidosGrupoE, NULL);
+    pthread_create(&F, NULL, PartidosGrupoF, NULL);
+    pthread_create(&G, NULL, PartidosGrupoG, NULL);
+    pthread_create(&H, NULL, PartidosGrupoH, NULL);
 
     pthread_join(A,NULL);
     pthread_join(B,NULL);
@@ -275,9 +269,7 @@ void jugar_grupos ()
     pthread_join(H,NULL);
 }
 
-
 char* winer_octavos[] = {"Wp49", "Wp50", "Wp51", "Wp52", "Wp53", "Wp54", "Wp55", "Wp56"};
-
 
 void jugar_partido_winners(char * nombre_equipo_1, char * nombre_equipo_2, int index_partido, char* data_winners[]){
   printf("Jugando partido entre %s y %s \n", nombre_equipo_1, nombre_equipo_2);
@@ -321,113 +313,182 @@ int obtener_segundo(int grupo_puntos[][8]){
   return index_segundo;
 }
 
-void jugar_octavos ()
-{
+void PartidoOctavosAB(){
   int index_1;
   char * nombre_equipo_1;
   int index_2;
   char * nombre_equipo_2;
-  printf("***************************************** \n");
-  printf("Jugando octavos \n");
-
-  //partido 49: A1 vs B2
+//partido 49: A1 vs B2
   index_1=obtener_primero(grupo_A_puntos);
   nombre_equipo_1=grupo_A[index_1];
   index_2=obtener_segundo(grupo_B_puntos);
   nombre_equipo_2=grupo_B[index_2];
   jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 0, winer_octavos);
-
-  //partido 50: C1 vs D2
-  index_1=obtener_primero(grupo_C_puntos);
-  nombre_equipo_1=grupo_C[index_1];
-  index_2=obtener_segundo(grupo_D_puntos);
-  nombre_equipo_2=grupo_D[index_2];
-  jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 1, winer_octavos);
-
+  }
+void PartidoOctavosBA(){
+  int index_1;
+  char * nombre_equipo_1;
+  int index_2;
+  char * nombre_equipo_2;
   //partido 51: B1 vs A2
   index_1=obtener_primero(grupo_B_puntos);
   nombre_equipo_1=grupo_B[index_1];
   index_2=obtener_segundo(grupo_A_puntos);
   nombre_equipo_2=grupo_A[index_2];
   jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 2, winer_octavos);
-
-  //partido 52: D1 vs C2
+  }
+void PartidoOctavosCD(){
+  int index_1;
+  char * nombre_equipo_1;
+  int index_2;
+  char * nombre_equipo_2;
+   //partido 50: C1 vs D2
+  index_1=obtener_primero(grupo_C_puntos);
+  nombre_equipo_1=grupo_C[index_1];
+  index_2=obtener_segundo(grupo_D_puntos);
+  nombre_equipo_2=grupo_D[index_2];
+  jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 1, winer_octavos);
+  }
+void PartidoOctavosDC(){
+  int index_1;
+  char * nombre_equipo_1;
+  int index_2;
+  char * nombre_equipo_2;
+   //partido 52: D1 vs C2
   index_1=obtener_primero(grupo_D_puntos);
   nombre_equipo_1=grupo_D[index_1];
   index_2=obtener_segundo(grupo_C_puntos);
   nombre_equipo_2=grupo_C[index_2];
   jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 3, winer_octavos);
-
+  }
+void PartidoOctavosEF(){
+  int index_1;
+  char * nombre_equipo_1;
+  int index_2;
+  char * nombre_equipo_2;
   //partido 53: E1 vs F2
   index_1=obtener_primero(grupo_E_puntos);
   nombre_equipo_1=grupo_E[index_1];
   index_2=obtener_segundo(grupo_F_puntos);
   nombre_equipo_2=grupo_F[index_2];
   jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 4, winer_octavos);
-
+  }
+void PartidoOctavosFE(){
+  int index_1;
+  char * nombre_equipo_1;
+  int index_2;
+  char * nombre_equipo_2;
+   //partido 55: F1 vs E2
+  index_1=obtener_primero(grupo_F_puntos);
+  nombre_equipo_1=grupo_F[index_1];
+  index_2=obtener_segundo(grupo_E_puntos);
+  nombre_equipo_2=grupo_E[index_2];
+  jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 6, winer_octavos);
+  }
+void PartidoOctavosGH(){
+  int index_1;
+  char * nombre_equipo_1;
+  int index_2;
+  char * nombre_equipo_2;
   //partido 54: G1 vs H2
   index_1=obtener_primero(grupo_G_puntos);
   nombre_equipo_1=grupo_G[index_1];
   index_2=obtener_segundo(grupo_H_puntos);
   nombre_equipo_2=grupo_H[index_2];
   jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 5, winer_octavos);
-
-  //partido 55: F1 vs E2
-  index_1=obtener_primero(grupo_F_puntos);
-  nombre_equipo_1=grupo_F[index_1];
-  index_2=obtener_segundo(grupo_E_puntos);
-  nombre_equipo_2=grupo_E[index_2];
-  jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 6, winer_octavos);
-
-  //partido 56: H1 vs G2
+  }
+void PartidoOctavosHG(){
+  int index_1;
+  char * nombre_equipo_1;
+  int index_2;
+  char * nombre_equipo_2;
+ //partido 56: H1 vs G2
   index_1=obtener_primero(grupo_H_puntos);
   nombre_equipo_1=grupo_H[index_1];
   index_2=obtener_segundo(grupo_G_puntos);
   nombre_equipo_2=grupo_G[index_2];
   jugar_partido_winners(nombre_equipo_1, nombre_equipo_2, 7, winer_octavos);
+  }
 
+void jugar_octavos ()
+{
+  printf("***************************************** \n");
+  printf("Jugando octavos \n");
+
+  pthread_create(&A, NULL, PartidoOctavosAB, NULL);
+  pthread_create(&B, NULL, PartidoOctavosBA, NULL);
+  pthread_create(&C, NULL, PartidoOctavosCD, NULL);
+  pthread_create(&D, NULL, PartidoOctavosDC, NULL);
+  pthread_create(&E, NULL, PartidoOctavosEF, NULL);
+  pthread_create(&F, NULL, PartidoOctavosFE, NULL);
+  pthread_create(&G, NULL, PartidoOctavosGH, NULL);
+  pthread_create(&H, NULL, PartidoOctavosHG, NULL);
+  pthread_join(A, NULL);
+  pthread_join(B, NULL);
+  pthread_join(C, NULL);
+  pthread_join(D, NULL);
+  pthread_join(E, NULL);
+  pthread_join(F, NULL);
+  pthread_join(G, NULL);
+  pthread_join(H, NULL);
 }
 
 char* winer_cuartos[] = {"Wp57", "Wp58", "Wp59", "Wp60"};
+
+void PartidoCuartosA(){
+    //partido 57: Wp49 vs Wp50
+  jugar_partido_winners(winer_octavos[0], winer_octavos[1], 0, winer_cuartos);
+}
+void PartidoCuartosB(){
+ //partido 59: Wp51 vs Wp52
+  jugar_partido_winners(winer_octavos[2], winer_octavos[3], 2, winer_cuartos);
+}
+void PartidoCuartosC(){
+  //partido 58: Wp53 vs Wp54
+  jugar_partido_winners(winer_octavos[4], winer_octavos[5], 1, winer_cuartos);
+}
+void PartidoCuartosD(){
+  //partido 60: Wp55 vs Wp56
+  jugar_partido_winners(winer_octavos[6], winer_octavos[7], 3, winer_cuartos);
+}
 
 void jugar_cuartos ()
 {
   printf("***************************************** \n");
   printf("Jugando cuartos \n");
-  int index_1;
-  char * nombre_equipo_1;
-  int index_2;
-  char * nombre_equipo_2;
 
-  //partido 57: Wp49 vs Wp50
-  jugar_partido_winners(winer_octavos[0], winer_octavos[1], 0, winer_cuartos);
+  pthread_create(&A, NULL, PartidoCuartosA, NULL);
+  pthread_create(&B, NULL, PartidoCuartosB, NULL);
+  pthread_create(&C, NULL, PartidoCuartosC, NULL);
+  pthread_create(&D, NULL, PartidoCuartosD, NULL);
 
-  //partido 58: Wp53 vs Wp54
-  jugar_partido_winners(winer_octavos[4], winer_octavos[5], 1, winer_cuartos);
-
-  //partido 59: Wp51 vs Wp52
-  jugar_partido_winners(winer_octavos[2], winer_octavos[3], 2, winer_cuartos);
-
-  //partido 60: Wp55 vs Wp56
-  jugar_partido_winners(winer_octavos[6], winer_octavos[7], 3, winer_cuartos);
-
+  pthread_join(A, NULL);
+  pthread_join(A, NULL);
+  pthread_join(A, NULL);
+  pthread_join(A, NULL);
 }
-
 
 char* winer_semis[] = {"Wp61", "Wp62"};
 char* champion[] = {"Wfinal"};
+
+void PartidoSemiA(){
+ //partido 61: Wp57 vs Wp58
+  jugar_partido_winners(winer_cuartos[0], winer_cuartos[1], 0, winer_semis);
+}
+void PartidoSemiB(){
+  //partido 62: Wp59 vs Wp60
+  jugar_partido_winners(winer_cuartos[2], winer_cuartos[3], 1, winer_semis);
+}
 
 void jugar_semis ()
 {
   printf("***************************************** \n");
   printf("Jugando semis \n");
-  //partido 61: Wp57 vs Wp58
-  jugar_partido_winners(winer_cuartos[0], winer_cuartos[1], 0, winer_semis);
 
-
-  //partido 62: Wp59 vs Wp60
-  jugar_partido_winners(winer_cuartos[2], winer_cuartos[3], 1, winer_semis);
-
+  pthread_create(&A, NULL, PartidoSemiA, NULL);
+  pthread_create(&B, NULL, PartidoSemiB, NULL);
+  pthread_join(A, NULL);
+  pthread_join(B, NULL);
 }
 
 void jugar_final ()
@@ -441,7 +502,6 @@ void jugar_final ()
   printf("El nuevo campeon del mundo es %s \n", champion[0]);
   printf("***************************************** \n");
 }
-
 
 int main ()
 {

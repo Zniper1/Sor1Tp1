@@ -251,21 +251,20 @@ void jugar_grupos ()
   printf("***************************************** \n");
 
     pthread_create(&A, NULL, PartidosGrupoA, NULL);
-    pthread_create(&B, NULL, PartidosGrupoB, NULL);
-    pthread_create(&C, NULL, PartidosGrupoC, NULL);
-    pthread_create(&D, NULL, PartidosGrupoD, NULL);
-    pthread_create(&E, NULL, PartidosGrupoE, NULL);
-    pthread_create(&F, NULL, PartidosGrupoF, NULL);
-    pthread_create(&G, NULL, PartidosGrupoG, NULL);
-    pthread_create(&H, NULL, PartidosGrupoH, NULL);
-
     pthread_join(A,NULL);
+    pthread_create(&B, NULL, PartidosGrupoB, NULL);
     pthread_join(B,NULL);
+    pthread_create(&C, NULL, PartidosGrupoC, NULL);
     pthread_join(C,NULL);
+    pthread_create(&D, NULL, PartidosGrupoD, NULL);
     pthread_join(D,NULL);
+    pthread_create(&E, NULL, PartidosGrupoE, NULL);
     pthread_join(E,NULL);
+    pthread_create(&F, NULL, PartidosGrupoF, NULL);
     pthread_join(F,NULL);
+    pthread_create(&G, NULL, PartidosGrupoG, NULL);
     pthread_join(G,NULL);
+    pthread_create(&H, NULL, PartidosGrupoH, NULL);
     pthread_join(H,NULL);
 }
 

@@ -11,35 +11,34 @@ int CantidadCanto = 3;
 
 void *ImprimirCantoMa ()
 {
-    while(CantidadCanto>0)
-{
-    sem_wait(&a);
-    printf("%s", "Ma");
-    CantidadCanto--;
-    sem_post(&b);
-    
-}
+	while(CantidadCanto>0)
+	{
+		sem_wait(&a);
+		printf("%s", "Ma");
+		CantidadCanto--;
+		sem_post(&b);
+	}
 }
 
 void *ImprimirCantoRa ()
 {
-    while(CantidadCanto>0)
-{
-    sem_wait(&b);
-    	printf("%s", "ra");
-    sem_post(&c);
-}
+	while(CantidadCanto>0)
+	{
+		sem_wait(&b);
+		printf("%s", "ra");
+		sem_post(&c);
+	}
 }
 
 void *ImprimirCantoDo ()
 {
-    while(CantidadCanto>0)
-{
-    sem_wait(&c);
-    	printf("%s", "dooo...");
-    	printf("%s", "\n");
-    sem_post(&a);
-}
+	while(CantidadCanto>0)
+	{
+		sem_wait(&c);
+		printf("%s", "dooo...");
+		printf("%s", "\n");
+		sem_post(&a);
+	}
 }
 
 

@@ -14,7 +14,7 @@
 #------------------------------------------------------
 # VARIABLES GLOBALES
 #------------------------------------------------------
-proyectoActual="$(pwd)";
+proyectoActual="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
 proyectos="";
 
 #------------------------------------------------------
@@ -35,6 +35,7 @@ imprimir_menu () {
     echo -e "\t\t\t e.  Buscar archivos por directorio, extension y nombre"; 
     echo -e "\t\t\t f.  Busqueda y concatenado de strings";
     echo -e "\t\t\t g.  Filtrar proceso en top"
+    echo -e "\t\t\t h.  Mostrar directorio"
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -169,17 +170,23 @@ f_funcion () {
 read -p "Ingrese el path completo incluyendo el archivo -> " archivo
 read -p "Ingrese un String para buscar en el archivo -> " string
 
-grep -i  "$string"  $archivo >> salida.out
+grep -i  "$string"  $archivo >> $proyectoActual/salida.out
 
 }
 g_funcion(){
 	imprimir_encabezado "\tOpción g. Filtrar proceso en top ";
 	
-gcc estados.c -o estados
-gnome-terminal -- ./estados
+gcc $proyectoActual/estados.c -o $proyectoActual/estados
+gnome-terminal -- $proyectoActual/./estados
 echo Presione Q para finalizar el control de estado del proceso:
-top | grep -n "estados" >> estados.txt 
+top | grep -n "estados" >> $proyectoActual/estados.txt 
 	
+}
+
+h_funcion(){
+	imprimir_encabezado "\tOpción h. Mostrar path";
+
+echo $proyectoActual;
 }
 
 #------------------------------------------------------
@@ -201,6 +208,7 @@ do
         e|E) e_funcion;;
         f|F) f_funcion;;
         g|G) g_funcion;;
+	h|H) h_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac

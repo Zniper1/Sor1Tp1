@@ -2,7 +2,7 @@
 #---------------------------------------
 while  true
 do
-	touch $(pwd)/SuperMenu.desktop
+	touch "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/SuperMenu.desktop
 	echo "[Desktop Entry]" >> SuperMenu.desktop
 	echo "Name= SuperMenu" >> SuperMenu.desktop
 	echo "Comment= Acceso directo del Supermenu" >> SuperMenu.desktop

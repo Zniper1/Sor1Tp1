@@ -14,25 +14,25 @@ int CantidadRepeticiones = 3;
 
 void *ImprimirCanto1 ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones*2)
+	int CantidadCanto1 = 0;
+	while(CantidadCanto1 < CantidadRepeticiones*2)
 	{
         	sem_wait(&a);
 		printf("%s", "Ole ole ole, \n");
-	        CantidadCanto++;
+	        CantidadCanto1++;
 		sem_post(&aux);
 	}
 }
 
 void *ImprimirCanto2 ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones)
+	int CantidadCanto2 = 0;
+	while(CantidadCanto2 < CantidadRepeticiones)
 	{
 		sem_wait(&b);
 		sem_wait(&aux);
 		printf("%s", "Ole ole ole ola, \n");
-	        CantidadCanto++;
+	        CantidadCanto2++;
 		sem_post(&a);
 		sem_post(&c);
         }
@@ -40,38 +40,38 @@ void *ImprimirCanto2 ()
 
 void *ImprimirCanto3 ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones)
+	int CantidadCanto3 = 0;
+	while(CantidadCanto3 < CantidadRepeticiones)
 	{
 		sem_wait(&c);
 		sem_wait(&aux);
 	    	printf("%s", "cada dia te quiero mas. \n");
-	        CantidadCanto++;
+	        CantidadCanto3++;
 	    	sem_post(&d);
 	}
 }
 
 void *ImprimirCanto4 ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones)
+	int CantidadCanto4 = 0;
+	while(CantidadCanto4 < CantidadRepeticiones)
 	{
 		sem_wait(&d);
 	   	printf("%s", "Ooooooh, Argentina \n");
-	        CantidadCanto++;
+	        CantidadCanto4++;
    		sem_post(&e);
 	}
 }
 
 void *ImprimirCanto5 ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones)
+	int CantidadCanto5 = 0;
+	while(CantidadCanto5 < CantidadRepeticiones)
 	{
     		sem_wait(&e);
 	    	printf("%s", "es un sentimiento, no puedo parar! \n");
 	    	printf("%s", "\n");
-	        CantidadCanto++;
+	        CantidadCanto5++;
 	   	sem_post(&a);
 		sem_post(&b);
         }

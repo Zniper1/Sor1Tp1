@@ -7,36 +7,41 @@ sem_t a;
 sem_t b;
 sem_t c;
 
-int CantidadCanto = 3;
+int CantidadRepeticiones = 3;
 
 void *ImprimirCantoMa ()
 {
-	while(CantidadCanto>0)
+	int CantidadCanto = 0;
+	while(CantidadCanto < CantidadRepeticiones)
 	{
 		sem_wait(&a);
 		printf("%s", "Ma");
-		CantidadCanto--;
+		CantidadCanto++;
 		sem_post(&b);
 	}
 }
 
 void *ImprimirCantoRa ()
 {
-	while(CantidadCanto>0)
+	int CantidadCanto = 0;
+	while(CantidadCanto < CantidadRepeticiones)
 	{
 		sem_wait(&b);
 		printf("%s", "ra");
+		CantidadCanto++;
 		sem_post(&c);
 	}
 }
 
 void *ImprimirCantoDo ()
 {
-	while(CantidadCanto>0)
+	int CantidadCanto = 0;
+	while(CantidadCanto < CantidadRepeticiones)
 	{
 		sem_wait(&c);
 		printf("%s", "dooo...");
 		printf("%s", "\n");
+		CantidadCanto++;
 		sem_post(&a);
 	}
 }

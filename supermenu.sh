@@ -35,7 +35,6 @@ imprimir_menu () {
     echo -e "\t\t\t e.  Buscar archivos por directorio, extension y nombre"; 
     echo -e "\t\t\t f.  Busqueda y concatenado de strings";
     echo -e "\t\t\t g.  Filtrar proceso en top"
-    echo -e "\t\t\t h.  Mostrar directorio"
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -115,6 +114,7 @@ b_funcion () {
 
 c_funcion () {
 	imprimir_encabezado "\tOpción c.  Actualizar el proyecto en la PC (PULL)";
+
 	decidir "cd $proyectoActual; git pull origin master";
 }
 
@@ -183,12 +183,6 @@ top | grep -n "estados" >> $proyectoActual/estados.txt
 	
 }
 
-h_funcion(){
-	imprimir_encabezado "\tOpción h. Mostrar path";
-
-echo $proyectoActual;
-}
-
 #------------------------------------------------------
 # LOGICA PRINCIPAL
 #------------------------------------------------------
@@ -208,7 +202,6 @@ do
         e|E) e_funcion;;
         f|F) f_funcion;;
         g|G) g_funcion;;
-	h|H) h_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac

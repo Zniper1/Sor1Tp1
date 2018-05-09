@@ -11,37 +11,37 @@ int CantidadRepeticiones = 3;
 
 void *ImprimirCantoMa ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones)
+	int CantidadCantoMa = 0;
+	while(CantidadCantoMa < CantidadRepeticiones)
 	{
 		sem_wait(&a);
 		printf("%s", "Ma");
-		CantidadCanto++;
+		CantidadCantoMa++;
 		sem_post(&b);
 	}
 }
 
 void *ImprimirCantoRa ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones)
+	int CantidadCantoRa = 0;
+	while(CantidadCantoRa < CantidadRepeticiones)
 	{
 		sem_wait(&b);
 		printf("%s", "ra");
-		CantidadCanto++;
+		CantidadCantoRa++;
 		sem_post(&c);
 	}
 }
 
 void *ImprimirCantoDo ()
 {
-	int CantidadCanto = 0;
-	while(CantidadCanto < CantidadRepeticiones)
+	int CantidadCantoDo = 0;
+	while(CantidadCantoDo < CantidadRepeticiones)
 	{
 		sem_wait(&c);
 		printf("%s", "dooo...");
 		printf("%s", "\n");
-		CantidadCanto++;
+		CantidadCantoDo++;
 		sem_post(&a);
 	}
 }
